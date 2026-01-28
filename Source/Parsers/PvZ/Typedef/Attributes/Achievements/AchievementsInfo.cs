@@ -93,10 +93,6 @@ public AchievementsInfo()
 {
 }
 
-// Read State
-
-private static bool ReadState(Stream reader) => reader.ReadUInt16() != 0;
-
 // Read data from BinaryStream
 
 public static AchievementsInfo ReadBin(Stream reader)
@@ -104,58 +100,54 @@ public static AchievementsInfo ReadBin(Stream reader)
 
 return new()
 {
-HomeSecurity = ReadState(reader),
-NobelPeas = ReadState(reader),
-Better_Off_Dead = ReadState(reader),
-ChinaShop = ReadState(reader),
-Spudow = ReadState(reader),
-Explodonator = ReadState(reader),
-Morticulturalist = ReadState(reader),
-DontPInPool = ReadState(reader),
-Roll_Some_Heads = ReadState(reader),
-Grounded = ReadState(reader),
-Zombologist = ReadState(reader),
-PennyPincher = ReadState(reader),
-SunnyDays = ReadState(reader),
-PopcornParty = ReadState(reader),
-GoodMorning = ReadState(reader),
-No_Fungus_Among_Us = ReadState(reader),
-BeyondGrave = ReadState(reader),
-Inmortal = ReadState(reader),
-ToweringWisdom = ReadState(reader),
-MustacheMode = ReadState(reader)
+HomeSecurity = Boolean16.Read(reader),
+NobelPeas = Boolean16.Read(reader),
+Better_Off_Dead = Boolean16.Read(reader),
+ChinaShop = Boolean16.Read(reader),
+Spudow = Boolean16.Read(reader),
+Explodonator = Boolean16.Read(reader),
+Morticulturalist = Boolean16.Read(reader),
+DontPInPool = Boolean16.Read(reader),
+Roll_Some_Heads = Boolean16.Read(reader),
+Grounded = Boolean16.Read(reader),
+Zombologist = Boolean16.Read(reader),
+PennyPincher = Boolean16.Read(reader),
+SunnyDays = Boolean16.Read(reader),
+PopcornParty = Boolean16.Read(reader),
+GoodMorning = Boolean16.Read(reader),
+No_Fungus_Among_Us = Boolean16.Read(reader),
+BeyondGrave = Boolean16.Read(reader),
+Inmortal = Boolean16.Read(reader),
+ToweringWisdom = Boolean16.Read(reader),
+MustacheMode = Boolean16.Read(reader)
 };
 
 }
-
-// Write State
-
-private static void WriteState(Stream writer, bool state) => writer.WriteUInt16( (ushort)(state ? 1u : 0u) );
 
 // Write data to BinaryStream
 
 public void WriteBin(Stream writer)
 {
-WriteState(writer, HomeSecurity);
-WriteState(writer, NobelPeas);
-WriteState(writer, Better_Off_Dead);
-WriteState(writer, ChinaShop);
-WriteState(writer, Spudow);
-WriteState(writer, Explodonator);
-WriteState(writer, Morticulturalist);
-WriteState(writer, DontPInPool);
-WriteState(writer, Roll_Some_Heads);
-WriteState(writer, Grounded);
-WriteState(writer, Zombologist);
-WriteState(writer, PennyPincher);
-WriteState(writer, SunnyDays);
-WriteState(writer, PopcornParty);
-WriteState(writer, GoodMorning);
-WriteState(writer, No_Fungus_Among_Us);
-WriteState(writer, BeyondGrave);
-WriteState(writer, Inmortal);
-WriteState(writer, ToweringWisdom);
-WriteState(writer, MustacheMode);
+Boolean16.Write(writer, HomeSecurity);
+Boolean16.Write(writer, NobelPeas);
+Boolean16.Write(writer, Better_Off_Dead);
+Boolean16.Write(writer, ChinaShop);
+Boolean16.Write(writer, Spudow);
+Boolean16.Write(writer, Explodonator);
+Boolean16.Write(writer, Morticulturalist);
+Boolean16.Write(writer, DontPInPool);
+Boolean16.Write(writer, Roll_Some_Heads);
+Boolean16.Write(writer, Grounded);
+Boolean16.Write(writer, Zombologist);
+Boolean16.Write(writer, PennyPincher);
+Boolean16.Write(writer, SunnyDays);
+Boolean16.Write(writer, PopcornParty);
+Boolean16.Write(writer, GoodMorning);
+Boolean16.Write(writer, No_Fungus_Among_Us);
+Boolean16.Write(writer, BeyondGrave);
+Boolean16.Write(writer, Inmortal);
+Boolean16.Write(writer, ToweringWisdom);
+Boolean16.Write(writer, MustacheMode);
 }
 
 }
