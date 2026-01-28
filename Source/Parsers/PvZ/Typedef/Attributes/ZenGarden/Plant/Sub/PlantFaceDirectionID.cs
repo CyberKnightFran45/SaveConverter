@@ -4,8 +4,8 @@ namespace SaveConverter.PvZ
 
 public enum PlantFaceDirectionID : uint
 {
-Left,
-Right
+Right,
+Left
 }
 
 }
